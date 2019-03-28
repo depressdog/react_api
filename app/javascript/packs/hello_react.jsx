@@ -5,9 +5,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
+import Home from './home'
 
 const Hello = props => (
-  <div>Hello {props.name}!</div>
+  <div>
+    Hello {props.name}!
+    <Home />
+  </div>
 )
 
 Hello.defaultProps = {

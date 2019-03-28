@@ -40,6 +40,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'semantic-ui-sass'
 
+gem 'webpacker'
+gem 'react-rails'
+
 group :production do
   gem 'pg', '>= 0.18', '< 2.0'
   gem 'listen', '>= 3.0.5', '< 3.2'

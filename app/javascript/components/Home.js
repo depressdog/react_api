@@ -34,9 +34,4 @@ class Home extends React.Component {
 		)
 	}
 }
-document.addEventListener('DOMContentLoaded', () => {
-	ReactDOM.render(
-		<Home />,
-		document.body.appendChild(document.createElement('div')),
-	)
-})
+export default Home

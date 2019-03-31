@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+
 class Home extends React.Component {
 	constructor(props){
 		super(props);
@@ -34,9 +35,4 @@ class Home extends React.Component {
 		)
 	}
 }
-document.addEventListener('DOMContentLoaded', () => {
-	ReactDOM.render(
-		<Home />,
-		document.body.appendChild(document.createElement('div')),
-	)
-})
+export default Home

@@ -13,8 +13,8 @@ class SubCategoryNew  extends React.Component {
 	onSubmit = () => {
 		this.props.onNewCat(this.state.name, this.state.category_id);
 	};
-	handleChange = (event) => {
-		this.setState({category_id: event.target.value});
+	handleChange = (e) => {
+		this.setState({category_id: e.target.value});
 	};
 	handleInput = (e) => {
 		this.setState({[e.target.name]: e.target.value})

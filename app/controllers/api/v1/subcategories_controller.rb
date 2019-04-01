@@ -1,7 +1,12 @@
 class Api::V1::SubcategoriesController < ApplicationController
   def index
-    @subcategories = Subcategory.order("category_id")
+    @subcategories = Subcategory.all.order("category_id")
 
+    render json: @subcategories
+  end
+
+  def show
+    @subcategories = Subcategory.find(params[:id])
     render json: @subcategories
   end
 

@@ -5,6 +5,11 @@ class Api::V1::CategoriesController < ApplicationController
     render json: @categories
   end
 
+  def show
+    @category = Category.find(params[:id])
+    render json: @category
+  end
+
   def create
     @category = Category.new(cat_params)
 

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :categories
       resources :subcategories
       resources :subsubcategories
+      resources :courses
     end
   end
   resources :courses

@@ -23,7 +23,6 @@ class IndexCategories extends React.Component {
 	componentDidMount() {
 		axios.get('api/v1/categories')
 			.then(response => {
-				console.log(response);
 				this.setState({
 					categories: response.data
 				})
@@ -34,7 +33,6 @@ class IndexCategories extends React.Component {
 	addNewCat(name) {
 		axios.post( '/api/v1/categories', { category: {name: name} })
 			.then(response => {
-				console.log(response);
 				const categories = update(this.state.categories, {
 					$splice: [[0, 0, response.data]]
 				});

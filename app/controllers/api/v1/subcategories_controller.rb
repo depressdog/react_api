@@ -1,6 +1,6 @@
 class Api::V1::SubcategoriesController < ApplicationController
   def index
-    @subcategories = Subcategory.order("updated_at desc")
+    @subcategories = Subcategory.order("category_id")
 
     render json: @subcategories
   end

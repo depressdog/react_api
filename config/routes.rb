@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'courses/index'
   get 'subcategories/index'
   get 'categories/index'
   namespace :api do

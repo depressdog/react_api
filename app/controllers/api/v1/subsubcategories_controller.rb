@@ -5,6 +5,11 @@ class Api::V1::SubsubcategoriesController < ApplicationController
     render json: @subsubcategories
   end
 
+  def show
+    @subsubcategories = Subsubcategory.find(params[:id])
+    render json: @subsubcategories
+  end
+
   def create
     @subsubcategories = Subsubcategory.new(subsubcat_params)
 

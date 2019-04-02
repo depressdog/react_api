@@ -24,9 +24,9 @@ class ShowCourses extends React.Component{
 					<div className="seven wide column">
 						<div className="item">
 							предмет обучения:
-							<Category category_id={this.props.course.category_id}/>
-							<Subcategory subcategory_id={this.props.course.subcategory_id}/>
-							<Subsubcategory subsubcategory_id={this.props.course.subsubcategory_id}/>
+							<span><Category category_id={this.props.course.category_id}/></span>
+							<span><Subcategory subcategory_id={this.props.course.subcategory_id}/></span>
+							<span><Subsubcategory subsubcategory_id={this.props.course.subsubcategory_id}/></span>
 						</div>
 						<div className="item">
 							Ник: {this.props.course.username}

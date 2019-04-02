@@ -1,0 +1,43 @@
+<div class="ui grid">
+	<div class="five wide column">
+		<div class="ui medium circular image">
+			<img src="https://semantic-ui.com/images/avatar2/large/molly.png" alt="">
+		</div>
+		<%= link_to "редактировать", edit_user_registration_path, class: 'fluid ui button blue' %>
+	</div>
+	<div class="eleven wide column">
+		<div class="ui list">
+			<div class="item">
+				Ник:
+			</div>
+			<div class="item">
+				Номер телефона:
+			</div>
+			<div class="item">
+				Имейл: <%= @user.email %>
+			</div>
+			<div class="item">
+				Образование:
+			</div>
+			<div class="item">
+				мои навыки:
+				<a href="#" class="ui label">Tag</a>
+				<a href="#" class="ui label">Tag</a>
+				<a href="#" class="ui label">Tag</a>
+				<a href="#" class="ui label">Tag</a>
+			</div>
+			<div class="item">
+				Мой возраст:
+			</div>
+			<div class="item">
+				Локация:
+			</div>
+			<div class="item">
+				О себе:
+			</div>
+			<div class="item">
+
+			</div>
+		</div>
+	</div>
+</div>

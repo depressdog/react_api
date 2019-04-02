@@ -16,9 +16,7 @@
 			<%= link_to "Обьявления", courses_path, class: 'ui button orange'  %>
 			<div class="ui menu right">
 				<% if user_signed_in? %>
-					<span>
-						<%= current_user.email %>
-					</span>
+					<%= link_to current_user.email, user_path(current_user.id), class: 'ui button blue' %>
 					<%= link_to "Выход",   destroy_user_session_path, method: :delete, class: 'ui button blue' %>
 				<% else %>
 					<%= link_to "вход",  new_user_session_path, class: 'ui button blue' %>

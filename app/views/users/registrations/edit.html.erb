@@ -13,25 +13,23 @@
 				<%= f.submit "сохранить", class: 'fluid ui button blue' %>
 				<%= link_to "Back", :back, class: 'ui button' %>
 			</div>
-			<h3>Cancel my account</h3>
 
-			<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), class: 'fluid ui button red', data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 
 		</div>
 		<div class="eleven wide column">
 			<div class="ui list">
 				<div class="item">
-					Ник:
+					Ник: <%= f.text_field :username %>
 				</div>
 				<div class="item">
-					Номер телефона:
+					Номер телефона: <%= f.text_field :phone %>
 				</div>
 				<div class="item">
 					Имейл: <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
 				</div>
 				<div class="item">
-					Образование:
+					Образование: <%= f.text_field :education %>
 				</div>
 				<div class="item">
 					мои навыки:
@@ -41,13 +39,13 @@
 					<a href="#" class="ui label">Tag</a>
 				</div>
 				<div class="item">
-					Мой возраст:
+					Мой возраст: <%= f.text_field :age %>
 				</div>
 				<div class="item">
 					Локация:
 				</div>
 				<div class="item">
-					О себе:
+					О себе: <%= f.text_area :body %>
 				</div>
 				<div class="item">
 					<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -72,7 +70,12 @@
 				</div>
 			</div>
 		</div>
+		<div class="sixteen wide column">
+
+		</div>
 	</div>
 <% end %>
 
+<h3>Cancel my account</h3>
 
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), class: 'fluid ui button red', data: { confirm: "Are you sure?" }, method: :delete %></p>

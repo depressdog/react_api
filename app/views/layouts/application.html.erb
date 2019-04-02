@@ -20,7 +20,6 @@
 					<%= link_to "Выход",   destroy_user_session_path, method: :delete, class: 'ui button blue' %>
 				<% else %>
 					<%= link_to "вход",  new_user_session_path, class: 'ui button blue' %>
-					<%= link_to "регистрация", new_user_registration_path, class: 'ui button blue' %>
 				<% end %>
 
 				<%= link_to "новая обьявление", new_course_path, class: 'ui button orange' %>

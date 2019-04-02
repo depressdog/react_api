@@ -9,7 +9,7 @@ class Category extends React.Component{
 		}
 	}
 	componentDidMount() {
-		axios.get('api/v1/categories/' + this.props.category_id)
+		axios.get('http://localhost:3000/api/v1/categories/' + this.props.category_id)
 			.then(response => {
 				this.setState({
 					name: response.data.name

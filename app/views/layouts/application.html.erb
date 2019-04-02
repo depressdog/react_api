@@ -13,8 +13,9 @@
   <body>
 		<div class="ui menu">
 			<a href="/" class="ui button red">Главная</a>
+			<%= link_to "Обьявления", courses_path, class: 'ui button orange'  %>
 			<div class="ui menu right">
-				<%= link_to "новая категория", new_course_path, class: 'ui button orange' %>
+				<%= link_to "новая обьявление", new_course_path, class: 'ui button orange' %>
 				<%= link_to "категории", categories_path, class: 'ui button green' %>
 				<%= link_to "под категории", subcategories_path, class: 'ui button green' %>
 				<%= link_to "под под категории", subsubcategories_path, class: 'ui button green' %>

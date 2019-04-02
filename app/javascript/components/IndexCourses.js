@@ -35,12 +35,12 @@ class IndexCourses extends React.Component{
 							return(
 								<div key={course.id} className="item">
 									<div className="image">
-										<a href="#" className="ui small image">
+										<a href={`courses/${course.id}`} className="ui small image">
 											<img src="https://semantic-ui.com/images/avatar2/large/matthew.png" alt=""/>
 										</a>
 									</div>
 									<div className="content">
-										<a href="#" className="header">{course.username}</a>
+										<a href={`courses/${course.id}`} className="header">{course.username}</a>
 										<div className="meta">
 											<span className="date"><Category category_id={course.category_id}/></span>
 											<span className="cinema"><Subcategory subcategory_id={course.subcategory_id}/></span>
@@ -48,7 +48,7 @@ class IndexCourses extends React.Component{
 										</div>
 										<div className="description">1</div>
 										<div className="extra">
-											Additional Details
+											цена: 123
 										</div>
 									</div>
 								</div>

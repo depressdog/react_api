@@ -2,6 +2,8 @@ import React from 'react'
 import axios from 'axios'
 import update from "immutability-helper";
 
+import {Radio, List} from 'semantic-ui-react'
+
 class NewCourse extends React.Component {
 	constructor(props){
 		super(props);
@@ -13,7 +15,8 @@ class NewCourse extends React.Component {
 			categories: [],
 			subcategories: [],
 			subsubcategories: [],
-			course: []
+			course: [],
+			user_id: this.props.user_id
 		}
 	}
 	componentDidMount() {
@@ -39,21 +42,13 @@ class NewCourse extends React.Component {
 			})
 			.catch(error => console.log(error));
 	}
-	catSelect = (e) => {
-		this.setState({category_id: e.target.value});
-	}
-	subcatSelect = (e) => {
-		this.setState({subcategory_id: e.target.value});
-	}
-	subsubcatSelect = (e) => {
-		this.setState({subsubcategory_id: e.target.value});
-	}
 	handleInput = (e) => {
 		this.setState({[e.target.name]: e.target.value})
 	};
 	onSubmit = () => {
 		axios.post( '//localhost:3000/api/v1/courses',
 			{ course: {
+					user_id: this.props.user_id,
 					username: this.state.username,
 					category_id: this.state.category_id,
 					subcategory_id: this.state.subcategory_id,
@@ -63,61 +58,87 @@ class NewCourse extends React.Component {
 			)
 			.then(response => {
 				console.log(response);
-				const course = response.data
+				const course = response.data;
 				this.setState({course})
 			})
 			.catch(error => {
 				console.log(error)
 			})
 	};
+	handleCatChange = (e, { value }) => this.setState({ category_id: value, subcategory_id: '', subsubcategory_id: '' });
+	handleSubCatChange = (e, { value }) => this.setState({ subcategory_id: value, subsubcategory_id: '' });
+	handleSubSubCatChange = (e, { value }) => this.setState({ subsubcategory_id: value });
 	render() {
+
 		return (
 			<React.Fragment>
 				<h2>Новое обьявление</h2>
 				<form className="ui form" onSubmit={this.onSubmit}>
 					<div className="three fields">
 						<div className="field">
-							<select name="category_id" onChange={this.catSelect}>
-								<option>Выбирете категорию</option>
+							<List>
 								{
 									this.state.categories.map(category =>{
 										return(
-											<option key={category.id} value={category.id}>{category.name}</option>
+											<List.Item key={category.id}>
+												<Radio
+													label={category.name}
+													name='category_id'
+													value={category.id}
+													checked={this.state.category_id === category.id}
+													onChange={this.handleCatChange}
+												/>
+											</List.Item>
 										)
 									})
 								}
-							</select>
+							</List>
 						</div>
 						<div className="field">
-							<select name="subcategory_id" onChange={this.subcatSelect}>
-								<option>Выбирете под категорию</option>
+							<List>
 								{
 									this.state.subcategories.map(category =>{
 										if(this.state.category_id != category.category_id){
 
 										}else {
-											return (
-												<option key={category.id} value={category.id}>{category.name}</option>
+											return(
+												<List.Item key={category.id}>
+													<Radio
+														label={category.name}
+														name='subcategory_id'
+														value={category.id}
+														checked={this.state.subcategory_id === category.id}
+														onChange={this.handleSubCatChange}
+													/>
+												</List.Item>
 											)
 										}
+
 									})
 								}
-							</select>
+							</List>
 						</div>
 						<div className="field">
-							<select name="subsubcategory_id" onChange={this.subsubcatSelect}>
-								<option>Выбирете под-категорию</option>
+							<List>
 								{
 									this.state.subsubcategories.map(category =>{
 										if(this.state.subcategory_id != category.subcategory_id){
 										} else {
 											return(
-												<option key={category.id} value={category.id}>{category.name}</option>
+												<List.Item key={category.id}>
+													<Radio
+														label={category.name}
+														name='subsubcategory_id'
+														value={category.id}
+														checked={this.state.subsubcategory_id === category.id}
+														onChange={this.handleSubSubCatChange}
+													/>
+												</List.Item>
 											)
 										}
 									})
 								}
-							</select>
+							</List>
 						</div>
 					</div>
 					<div className="field">

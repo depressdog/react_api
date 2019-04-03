@@ -24,6 +24,10 @@ class ShowCourses extends React.Component{
 					</div>
 					<div className="seven wide column">
 						<div className="item">
+							<a className="ui button orange" href={`./${this.props.course.id}/edit`}>Редактировать</a>
+							<a className="ui button red" rel="nofollow" data-method="delete" href={`/courses/${this.props.course.id}`}>удалить</a>
+						</div>
+						<div className="item">
 							предмет обучения:
 							<span><Category category_id={this.props.course.category_id}/></span>
 							<span><Subcategory subcategory_id={this.props.course.subcategory_id}/></span>

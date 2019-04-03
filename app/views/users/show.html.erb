@@ -36,7 +36,8 @@
 				О себе: <%= @user.body %>
 			</div>
 			<div class="item">
-
+        <%= @user.video_url %>
+        <%= react_component("Video", video_url: @user.video_url) %>
 			</div>
 		</div>
 	</div>

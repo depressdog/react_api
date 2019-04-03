@@ -8,7 +8,14 @@ class NewCourse extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			username: '',
+			username: this.props.user_username,
+			phone: this.props.user_phone,
+			email: this.props.user_email,
+			education: this.props.user_education,
+            age: this.props.user_age,
+            video_url: this.props.user_video_url,
+            body: this.props.user_body,
+            price: '',
 			category_id: '',
 			subcategory_id: '',
 			subsubcategory_id: '',
@@ -50,6 +57,13 @@ class NewCourse extends React.Component {
 			{ course: {
 					user_id: this.props.user_id,
 					username: this.state.username,
+					phone: this.state.phone,
+					email: this.state.email,
+					education: this.state.education,
+                    age: this.state.age,
+                    video_url: this.state.video_url,
+                    price: this.state.price,
+                    body: this.state.body,
 					category_id: this.state.category_id,
 					subcategory_id: this.state.subcategory_id,
 					subsubcategory_id: this.state.subsubcategory_id
@@ -141,14 +155,81 @@ class NewCourse extends React.Component {
 							</List>
 						</div>
 					</div>
-					<div className="field">
-						<label htmlFor="username"></label>
-						<input
-							name="username"
-							type="text"
-							onChange={this.handleInput}
-						/>
+					<div className="two fields">
+						<div className="field">
+							<label htmlFor="username">username</label>
+							<input
+								name="username"
+								type="text"
+								onChange={this.handleInput}
+								placeholder={this.state.username}
+							/>
+						</div>
+						<div className="field">
+							<label htmlFor="phone">phone</label>
+							<input
+								name="phone"
+								type="text"
+								onChange={this.handleInput}
+								placeholder={this.state.phone}
+							/>
+						</div>
+						<div className="field">
+							<label htmlFor="email">email</label>
+							<input
+								name="email"
+								type="text"
+								onChange={this.handleInput}
+								placeholder={this.state.email}
+							/>
+						</div>
 					</div>
+					<div className="two fields">
+                        <div className="field">
+                            <label htmlFor="education">education</label>
+                            <input
+                                name="education"
+                                type="text"
+                                onChange={this.handleInput}
+                                placeholder={this.state.education}
+                            />
+                        </div>
+                        <div className="field">
+                            <label htmlFor="age">age</label>
+                            <input
+                                name="age"
+                                type="text"
+                                onChange={this.handleInput}
+                                placeholder={this.state.age}
+                            />
+                        </div>
+                        <div className="field">
+                            <label htmlFor="video_url">video_url</label>
+                            <input
+                                name="video_url"
+                                type="text"
+                                onChange={this.handleInput}
+                                placeholder={this.state.video_url}
+                            />
+                        </div>
+                        <div className="field">
+                            <label htmlFor="price">price</label>
+                            <input
+                                name="price"
+                                type="text"
+                                onChange={this.handleInput}
+                                placeholder={this.state.price}
+                            />
+                        </div>
+                    </div>
+                    <div className="field">
+                        <label htmlFor="body">body</label>
+                        <textarea
+                            name="body"
+                            onChange={this.handleInput}
+                            placeholder={this.state.body}
+                        ></textarea>
+                    </div>
 					<button className="ui button green">
 						создать
 					</button>

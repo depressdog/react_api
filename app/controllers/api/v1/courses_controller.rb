@@ -21,6 +21,9 @@ class Api::V1::CoursesController < ApplicationController
   end
   protected
     def course_params
-      params.require(:course).permit(:user_id, :username, :category_id, :subcategory_id, :subsubcategory_id)
+      params.require(:course).permit(:user_id, :username, :category_id,
+                                     :subcategory_id, :subsubcategory_id,
+                                     :phone, :email, :education, :age,
+                                     :video_url, :price, :body)
     end
 end

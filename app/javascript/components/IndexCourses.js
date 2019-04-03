@@ -46,9 +46,9 @@ class IndexCourses extends React.Component{
 											<span className="cinema"><Subcategory subcategory_id={course.subcategory_id}/></span>
 											<span><Subsubcategory subsubcategory_id={course.subsubcategory_id}/></span>
 										</div>
-										<div className="description">1</div>
+										<div className="description">{course.body}</div>
 										<div className="extra">
-											цена: 123
+											цена: {course.price}
 										</div>
 									</div>
 								</div>

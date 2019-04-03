@@ -4,12 +4,13 @@ import axios from 'axios'
 import Category from './courses/Category'
 import Subcategory from './courses/Subcategory'
 import Subsubcategory from './courses/Subsubcategory'
+import Video from './Video'
 
 class ShowCourses extends React.Component{
 	constructor(props){
-		super(props)
+		super(props);
 		this.state ={
-			
+			video_url: this.props.course.video_url
 		}
 	}
 	render() {
@@ -32,28 +33,27 @@ class ShowCourses extends React.Component{
 							Ник: {this.props.course.username}
 						</div>
 						<div className="item">
-							Номер телефона:
+							Номер телефона: {this.props.course.phone}
 						</div>
 						<div className="item">
-							Имейл:
+							Имейл: {this.props.course.email}
 						</div>
 						<div className="item">
-							цена:
+							цена: {this.props.course.price}
 						</div>
 						<div className="item">
-							образование:
+							образование: {this.props.course.education}
 						</div>
 						<div className="item">
-							возраст:
+							возраст: {this.props.course.age}
 						</div>
 					</div>
 				</div>
 				<div className="sixteen wide column">
 					<h2>Описание:</h2>
+                    <p>{this.props.course.body}</p>
 				</div>
-				<div className="sixteen wide column">
-
-				</div>
+                <Video video_url={this.state.video_url} />
 			</React.Fragment>
 		)
 	}

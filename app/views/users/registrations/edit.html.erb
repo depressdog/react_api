@@ -13,9 +13,6 @@
 				<%= f.submit "сохранить", class: 'fluid ui button blue' %>
 				<%= link_to "Back", :back, class: 'ui button' %>
 			</div>
-
-
-
 		</div>
 		<div class="eleven wide column">
 			<div class="ui list">
@@ -45,7 +42,12 @@
 					Локация:
 				</div>
 				<div class="item">
-					О себе: <%= f.text_area :body %>
+					<h3>О себе:</h3>
+					<%= f.text_area :body %>
+				</div>
+				<div class="item">
+          <h3>видео</h3>
+          <%= f.text_field :video_url %>
 				</div>
 				<div class="item">
 					<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -69,9 +71,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="sixteen wide column">
-
 		</div>
 	</div>
 <% end %>

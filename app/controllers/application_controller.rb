@@ -24,6 +24,7 @@ class ApplicationController < ActionController::Base
                                                                 :image7,
                                                                 :image8,
                                                                 :image9,
-                                                                :image10]
+                                                                :image10,
+                                                                :all_tags ]
     end
 end

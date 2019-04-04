@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   resources :subsubcategories, only: [:index]
   resources :users, only: [:show]
   resources :genders
+  resources :tags
 
   root 'home#index'
 

@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :taggings
+  has_many :tags, through: :taggings
   has_many :courses, dependent: :destroy
   belongs_to :gender
 
@@ -18,4 +20,13 @@ class User < ApplicationRecord
   mount_uploader :image8, AvatarUploader
   mount_uploader :image9, AvatarUploader
   mount_uploader :image10, AvatarUploader
+
+  def all_tags
+    self.tags.map(&:name).join(', ')
+  end
+  def all_tags=(names)
+    self.tags = names.split(',').map do |name|
+      Tag.where(name: name.strip).first_or_create!
+    end
+  end
 end

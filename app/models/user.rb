@@ -7,7 +7,9 @@ class User < ApplicationRecord
   has_many :taggings
   has_many :tags, through: :taggings
   has_many :courses, dependent: :destroy
-  belongs_to :gender
+  belongs_to :gender, optional: true
+  belongs_to :country, optional: true
+  belongs_to :city, optional: true
 
   mount_uploader :avatar, AvatarUploader
   mount_uploader :image1, AvatarUploader

@@ -25,6 +25,8 @@ class ApplicationController < ActionController::Base
                                                                 :image8,
                                                                 :image9,
                                                                 :image10,
-                                                                :all_tags ]
+                                                                :all_tags,
+                                                                :country_id,
+                                                                :city_id ]
     end
 end

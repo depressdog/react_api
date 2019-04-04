@@ -43,6 +43,13 @@
 				</div>
 				<div class="item">
 					Локация:
+          Пол: <%= f.collection_select :country_id, Country.order(:name), :id,
+                                       :name, {include_blank: true}
+        %>
+          Пол: <%= f.collection_select :city_id, City.order(:name), :id,
+                                       :name, {include_blank: true}
+        %>
+          <%= react_component("Location", user: @user) %>
 				</div>
 				<div class="item">
 					<h3>О себе:</h3>

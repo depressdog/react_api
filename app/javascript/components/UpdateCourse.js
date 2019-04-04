@@ -22,7 +22,7 @@ class UpdateCourse extends React.Component {
 		}
 	}
 	componentDidMount() {
-		axios.get(`//localhost:3000/api/v1/courses/${this.state.course_id}`)
+		axios.get(`//masterzz.club/api/v1/courses/${this.state.course_id}`)
 			.then(response => {
 				this.setState({
 					course: response.data,
@@ -32,21 +32,21 @@ class UpdateCourse extends React.Component {
 				})
 			})
 			.catch(error => console.log(error));
-		axios.get('//localhost:3000/api/v1/categories')
+		axios.get('//masterzz.club/api/v1/categories')
 			.then(response => {
 				this.setState({
 					categories: response.data
 				})
 			})
 			.catch(error => console.log(error));
-		axios.get(`//localhost:3000/api/v1/subcategories/`)
+		axios.get(`//masterzz.club/api/v1/subcategories/`)
 			.then(response => {
 				this.setState({
 					subcategories: response.data
 				})
 			})
 			.catch(error => console.log(error));
-		axios.get(`//localhost:3000/api/v1/subsubcategories/`)
+		axios.get(`//masterzz.club/api/v1/subsubcategories/`)
 			.then(response => {
 				this.setState({
 					subsubcategories: response.data
@@ -56,7 +56,7 @@ class UpdateCourse extends React.Component {
 	}
 	onSubmit = () => {
 		axios.put(
-			(`//localhost:3000/api/v1/courses/${this.props.course_id}`),
+			(`//masterzz.club/api/v1/courses/${this.props.course_id}`),
 			{
 				body: this.state.body,
 				video_url: this.state.video_url,

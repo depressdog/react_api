@@ -37,21 +37,21 @@ class NewCourse extends React.Component {
 		}
 	}
 	componentDidMount() {
-		axios.get('//localhost:3000/api/v1/categories')
+		axios.get('//masterzz.club/api/v1/categories')
 			.then(response => {
 				this.setState({
 					categories: response.data
 				})
 			})
 			.catch(error => console.log(error));
-		axios.get(`//localhost:3000/api/v1/subcategories/`)
+		axios.get(`//masterzz.club/api/v1/subcategories/`)
 			.then(response => {
 				this.setState({
 					subcategories: response.data
 				})
 			})
 			.catch(error => console.log(error));
-		axios.get(`//localhost:3000/api/v1/subsubcategories/`)
+		axios.get(`//masterzz.club/api/v1/subsubcategories/`)
 			.then(response => {
 				this.setState({
 					subsubcategories: response.data
@@ -63,7 +63,7 @@ class NewCourse extends React.Component {
 		this.setState({[e.target.name]: e.target.value})
 	};
 	onSubmit = () => {
-		axios.post( '//localhost:3000/api/v1/courses',
+		axios.post( '//masterzz.club/api/v1/courses',
 			{ course: {
 					user_id: this.props.user_id,
 					username: this.state.username,

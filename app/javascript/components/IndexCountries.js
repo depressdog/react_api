@@ -19,7 +19,7 @@ class IndexCountries extends React.Component{
         this.updateCat = this.updateCat.bind(this)
     }
     componentDidMount() {
-        axios.get('//localhost:3000/api/v1/countries')
+        axios.get('//masterzz.club/api/v1/countries')
             .then(response => {
                 this.setState({
                     countries: response.data
@@ -28,7 +28,7 @@ class IndexCountries extends React.Component{
             .catch(error => console.log(error))
     }
     addNewCat(name) {
-        axios.post( '//localhost:3000/api/v1/countries', { country: {name: name} })
+        axios.post( '//masterzz.club/api/v1/countries', { country: {name: name} })
             .then(response => {
 
                 const countries = update(this.state.countries, {

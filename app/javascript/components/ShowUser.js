@@ -10,7 +10,7 @@ class ShowUser extends React.Component {
 						<div className="ui medium circular image">
 							<img src="https://semantic-ui.com/images/avatar2/large/molly.png" alt=""/>
 						</div>
-						<a href="http://localhost:3000/users/edit" className="fluid ui button blue">редактировать</a>
+						<a href="http://masterzz.club/users/edit" className="fluid ui button blue">редактировать</a>
 					</div>
 					<div className="eleven wide column">
 						<div className="ui list">

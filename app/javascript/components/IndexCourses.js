@@ -16,7 +16,7 @@ class IndexCourses extends React.Component{
 		}
 	}
 	componentDidMount() {
-		axios.get('//localhost:3000/api/v1/courses')
+		axios.get('//masterzz.club/api/v1/courses')
 			.then(response => {
 				console.log(response);
 				this.setState({

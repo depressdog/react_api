@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  get 'genders/new'
+  get 'cities/index'
+  get 'countries/index'
   devise_for :users, controllers: {
       sessions: 'users/sessions',
       registrations: 'users/registrations', only: [:update]
   }
 
-
+  get 'genders/new'
   get 'courses/index'
   get 'subcategories/index'
   get 'categories/index'
@@ -16,12 +17,16 @@ Rails.application.routes.draw do
       resources :subcategories
       resources :subsubcategories
       resources :courses
+      resources :countries
+      resources :cities
     end
   end
 
   resources :courses
   resources :categories, only: [:index]
   resources :subcategories, only: [:index]
+  resources :countries, only: [:index]
+  resources :cities, only: [:index]
   resources :subsubcategories, only: [:index]
   resources :users, only: [:show]
   resources :genders

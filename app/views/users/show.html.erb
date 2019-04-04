@@ -21,13 +21,8 @@
 			</div>
 			<div class="item">
 				мои навыки:
-
-        <%= raw @user.tags.map(&:name).map{ |t| link_to t, tag_path(t), class:
-            'ui label' }.join(' ') %>
-<!--				<a href="#" class="ui label">Tag</a>-->
-<!--				<a href="#" class="ui label">Tag</a>-->
-<!--				<a href="#" class="ui label">Tag</a>-->
-<!--				<a href="#" class="ui label">Tag</a>-->
+        <%= raw @user.tags.map(&:name).map{ |t| link_to t, "#", class: 'ui
+        label' }.join(' ') %>
 			</div>
 			<div class="item">
 				Мой возраст: <%= @user.age %>

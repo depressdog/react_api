@@ -16,7 +16,7 @@ class Update extends React.Component {
         };
 
         axios.put(
-            ('//localhost:3000/api/v1/countries/' + this.props.country.id),
+            ('//masterzz.club/api/v1/countries/' + this.props.country.id),
             {
                 country: country
             }

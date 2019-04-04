@@ -10,6 +10,11 @@ class Api::V1::CoursesController < ApplicationController
 
     render json: @course
   end
+  def update
+    @course = Course.find(params[:id])
+    @course.update_attributes(course_params)
+    render json: @course
+  end
   def create
     @course = Course.new(course_params)
 

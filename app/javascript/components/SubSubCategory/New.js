@@ -64,7 +64,7 @@ class New extends React.Component {
 								if(this.state.category_id != subcategory.category_id) {
 								} else {
 									return(
-										<option key={subcategory.id} value={subcategory.id}>{subcategory.name} - {subcategory.category_id}</option>
+										<option key={subcategory.id} value={subcategory.id}>{subcategory.name}</option>
 									)
 								}
 							})

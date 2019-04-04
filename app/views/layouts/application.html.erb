@@ -28,6 +28,7 @@
 				<%= link_to "под категории", subcategories_path, class: 'ui button green' %>
 				<%= link_to "под под категории", subsubcategories_path, class: 'ui button green' %>
 				<%= link_to "страный", countries_index_path, class: 'ui button pink' %>
+				<%= link_to "города", cities_index_path, class: 'ui button pink' %>
 			</div>
 		</div>
 		<p class="notice"><%= notice %></p>
@@ -35,5 +36,10 @@
 		<div class="ui container">
 			<%= yield %>
 		</div>
+    <div class="ui right rail">
+      <div class="ui segment">
+        Right Rail Content
+      </div>
+    </div>
   </body>
 </html>

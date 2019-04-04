@@ -2,7 +2,7 @@ class CreateCities < ActiveRecord::Migration[5.2]
   def change
     create_table :cities do |t|
       t.string :name
-      t.integer :contry_id
+      t.integer :country_id
 
       t.timestamps
     end

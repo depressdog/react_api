@@ -30,6 +30,7 @@ class IndexCountries extends React.Component{
     addNewCat(name) {
         axios.post( '//localhost:3000/api/v1/countries', { country: {name: name} })
             .then(response => {
+
                 const countries = update(this.state.countries, {
                     $splice: [[0, 0, response.data]]
                 });

@@ -11,7 +11,7 @@ class Api::V1::CitiesController < ApplicationController
   end
 
   def create
-    @city = City.new(cat_params)
+    @city = City.new(city_params)
 
     if @city.save
       render json: @city
@@ -22,7 +22,7 @@ class Api::V1::CitiesController < ApplicationController
 
   def update
     @city = City.find(params[:id])
-    @city.update_attributes(cat_params)
+    @city.update_attributes(city_params)
     render json: @city
   end
   def destroy
@@ -34,7 +34,7 @@ class Api::V1::CitiesController < ApplicationController
     end
   end
   private
-    def cat_params
-      params.require(:city).permit(:name, :contry_id)
+    def city_params
+      params.require(:city).permit(:name, :country_id)
     end
 end

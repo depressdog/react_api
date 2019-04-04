@@ -35,6 +35,25 @@
 			<div class="item">
 				О себе: <%= @user.body %>
 			</div>
+      <% if @user.image1? || @user.image2? || @user.image3? || @user.image4? || @user.image5? || @user.image6? || @user.image7? || @user.image8? || @user.image9? || @user.image10?
+      %>
+        <div class="item">
+          Фото:
+          <div class="ui small images">
+          <%= image_tag @user.image1.url if @user.image1? %>
+          <%= image_tag @user.image2.url if @user.image2? %>
+          <%= image_tag @user.image3.url if @user.image3? %>
+          <%= image_tag @user.image4.url if @user.image4? %>
+          <%= image_tag @user.image5.url if @user.image5? %>
+          <%= image_tag @user.image6.url if @user.image6? %>
+          <%= image_tag @user.image7.url if @user.image7? %>
+          <%= image_tag @user.image8.url if @user.image8? %>
+          <%= image_tag @user.image9.url if @user.image9? %>
+          <%= image_tag @user.image10.url if @user.image10? %>
+          </div>
+        </div>
+
+    <% end %>
 			<div class="item">
         <%= react_component("Video", video_url: @user.video_url) %>
 			</div>

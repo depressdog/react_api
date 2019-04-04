@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'genders/new'
   devise_for :users, controllers: {
       sessions: 'users/sessions',
       registrations: 'users/registrations', only: [:update]
@@ -23,6 +24,7 @@ Rails.application.routes.draw do
   resources :subcategories, only: [:index]
   resources :subsubcategories, only: [:index]
   resources :users, only: [:show]
+  resources :genders
 
   root 'home#index'
 

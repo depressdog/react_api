@@ -23,7 +23,8 @@
 					Номер телефона: <%= f.text_field :phone %>
 				</div>
 				<div class="item">
-					Имейл: <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+					Имейл: <%= f.email_field :email, autofocus: true, autocomplete:
+            "email" %>
 				</div>
 				<div class="item">
 					Образование: <%= f.text_field :education %>
@@ -39,6 +40,11 @@
 					Мой возраст: <%= f.text_field :age %>
 				</div>
 				<div class="item">
+					Пол: <%= f.collection_select :gender_id, Gender.order(:name), :id,
+                                       :name, {include_blank: true}
+        %>
+				</div>
+				<div class="item">
 					Локация:
 				</div>
 				<div class="item">
@@ -51,7 +57,8 @@
 				</div>
 				<div class="item">
 					<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-						<div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+						<div>Currently waiting confirmation for: <%= resource
+                                                         .unconfirmed_email %></div>
 					<% end %>
 
 					<div class="two fields">

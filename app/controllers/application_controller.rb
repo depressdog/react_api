@@ -8,6 +8,9 @@ class ApplicationController < ActionController::Base
     def configure_permitted_parameters
       devise_parameter_sanitizer.permit :account_update, keys: [:phone, :email, :username, :password,
                                                                 :password_confirmation, :remember_me, :education,
-                                                                :video_url, :age, :body, :avatar]
+                                                                :video_url,
+                                                                :age, :body,
+                                                                :avatar,
+                                                                :gender_id]
     end
 end

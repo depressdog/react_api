@@ -29,6 +29,8 @@
 /config/secrets.yml
 .idea
 
+/public/uploads
+
 /public/packs
 /public/packs-test
 /node_modules

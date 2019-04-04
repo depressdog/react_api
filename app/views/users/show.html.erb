@@ -1,7 +1,7 @@
 <div class="ui grid">
 	<div class="five wide column">
 		<div class="ui medium circular image">
-			<img src="https://semantic-ui.com/images/avatar2/large/molly.png" alt="">
+			<%= image_tag @user.avatar.url if @user.avatar? %>
 		</div>
 		<%= link_to "редактировать", edit_user_registration_path, class: 'fluid ui button blue' %>
 	</div>

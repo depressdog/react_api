@@ -9,7 +9,7 @@ class Subcategory extends React.Component{
 		}
 	}
 	componentDidMount() {
-		axios.get('//localhost:3000/api/v1/subcategories/' + this.props.subcategory_id)
+		axios.get('//masterzz.club/api/v1/subcategories/' + this.props.subcategory_id)
 			.then(response => {
 				this.setState({
 					name: response.data.name

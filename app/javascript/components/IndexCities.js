@@ -20,7 +20,7 @@ class IndexCities extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('//masterzz.club/api/v1/cities')
+        axios.get('/api/v1/cities')
             .then(response => {
                 console.log(response);
                 this.setState({

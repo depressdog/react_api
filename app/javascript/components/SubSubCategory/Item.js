@@ -9,7 +9,7 @@ class Item extends React.Component{
 		}
 	}
 	componentDidMount() {
-		axios.get('api/v1/subcategories/' + this.props.subsubcategory.subcategory_id)
+		axios.get('//masterzz.club/api/v1/subcategories/' + this.props.subsubcategory.subcategory_id)
 			.then(response => {
 				this.setState({
 					parentname: response.data.name

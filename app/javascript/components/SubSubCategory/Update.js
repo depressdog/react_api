@@ -17,7 +17,7 @@ class Update extends React.Component {
 		};
 
 		axios.put(
-			('api/v1/subsubcategories/' + this.props.subsubcategory.id),
+			('//masterzz.club/api/v1/subsubcategories/' + this.props.subsubcategory.id),
 			{
 				subsubcategory: subsubcategory
 			}
@@ -28,7 +28,7 @@ class Update extends React.Component {
 			.catch(error => console.log(error))
 	};
 	componentDidMount() {
-		axios.get('api/v1/subcategories/' + this.props.subsubcategory.subcategory_id)
+		axios.get('//masterzz.club/api/v1/subcategories/' + this.props.subsubcategory.subcategory_id)
 			.then(response => {
 				this.setState({
 					parentname: response.data.name

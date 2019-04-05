@@ -23,14 +23,14 @@ class New extends React.Component {
 		this.setState({[e.target.name]: e.target.value})
 	};
 	componentDidMount() {
-		axios.get('api/v1/categories')
+		axios.get('//masterzz.club/api/v1/categories')
 			.then(response => {
 				this.setState({
 					categories: response.data
 				})
 			})
 			.catch(error => console.log(error));
-		axios.get(`api/v1/subcategories/`)
+		axios.get(`//masterzz.club/api/v1/subcategories/`)
 			.then(response => {
 				this.setState({
 					subcategories: response.data

@@ -20,7 +20,7 @@ class IndexSubCategories extends React.Component {
 	}
 
 	componentDidMount() {
-		axios.get('api/v1/subcategories')
+		axios.get('//masterzz.club/api/v1/subcategories')
 			.then(response => {
 				console.log(response);
 				this.setState({
@@ -31,7 +31,7 @@ class IndexSubCategories extends React.Component {
 	}
 
 	addNewCat(name, category_id) {
-		axios.post( '/api/v1/subcategories', { subcategory: {name: name, category_id: category_id} })
+		axios.post( '//masterzz.club/api/v1/subcategories', { subcategory: {name: name, category_id: category_id} })
 			.then(response => {
 				console.log(response);
 				const subcategories = update(this.state.subcategories, {
@@ -58,7 +58,7 @@ class IndexSubCategories extends React.Component {
 	};
 
 	deleteCategory = (id) => {
-		axios.delete(`/api/v1/subcategories/${id}`)
+		axios.delete(`//masterzz.club/api/v1/subcategories/${id}`)
 			.then(response => {
 				const subcategoryIndex = this.state.subcategories.findIndex(x => x.id === id);
 				const subcategories = update(this.state.subcategories, { $splice: [[subcategoryIndex, 1]]});

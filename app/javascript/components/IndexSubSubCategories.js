@@ -18,7 +18,7 @@ class IndexSubSubCategories extends React.Component {
 		this.updateCat = this.updateCat.bind(this)
 	}
 	componentDidMount() {
-		axios.get('api/v1/subsubcategories')
+		axios.get('//masterzz.club/api/v1/subsubcategories')
 			.then(response => {
 				console.log(response);
 				this.setState({
@@ -28,7 +28,7 @@ class IndexSubSubCategories extends React.Component {
 			.catch(error => console.log(error))
 	}
 	addNewCat(name, subcategory_id) {
-		axios.post( '/api/v1/subsubcategories', { subsubcategory: {name: name, subcategory_id: subcategory_id} })
+		axios.post( '//masterzz.club/api/v1/subsubcategories', { subsubcategory: {name: name, subcategory_id: subcategory_id} })
 			.then(response => {
 				console.log(response);
 				const subsubcategories = update(this.state.subsubcategories, {
@@ -53,7 +53,7 @@ class IndexSubSubCategories extends React.Component {
 		this.setState({subsubcategories: subsubcategories})
 	};
 	deleteCategory = (id) => {
-		axios.delete(`/api/v1/subsubcategories/${id}`)
+		axios.delete(`//masterzz.club/api/v1/subsubcategories/${id}`)
 			.then(response => {
 				const subsubcategoryIndex = this.state.subsubcategories.findIndex(x => x.id === id);
 				const subsubcategories = update(this.state.subsubcategories, { $splice: [[subsubcategoryIndex, 1]]});

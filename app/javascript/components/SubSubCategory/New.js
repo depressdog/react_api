@@ -30,7 +30,7 @@ class New extends React.Component {
 				})
 			})
 			.catch(error => console.log(error));
-		axios.get(`//masterzz.club/api/v1/subcategories/`)
+		axios.get(`//masterzz.club/api/v1/subcategories`)
 			.then(response => {
 				this.setState({
 					subcategories: response.data

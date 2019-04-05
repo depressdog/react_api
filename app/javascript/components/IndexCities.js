@@ -20,7 +20,7 @@ class IndexCities extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('/api/v1/cities')
+        axios.get('//masterzz.club/api/v1/cities')
             .then(response => {
                 console.log(response);
                 this.setState({
@@ -31,7 +31,7 @@ class IndexCities extends React.Component {
     }
 
     addNewCat(name, country_id) {
-        axios.post( '/api/v1/cities', { city: {name: name, country_id: country_id} })
+        axios.post( '//masterzz.club/api/v1/cities', { city: {name: name, country_id: country_id} })
             .then(response => {
                 console.log(response);
                 const cities = update(this.state.cities, {

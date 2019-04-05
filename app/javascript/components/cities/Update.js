@@ -28,7 +28,7 @@ class Update extends React.Component {
             .catch(error => console.log(error))
     };
     componentDidMount() {
-        axios.get('//masterzz.club/api/v1/countries/' + this.props.city.country_id)
+        axios.get('/api/v1/countries/' + this.props.city.country_id)
             .then(response => {
                 this.setState({
                     parentname: response.data.name

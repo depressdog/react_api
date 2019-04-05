@@ -78,7 +78,7 @@ class IndexCategories extends React.Component {
 						<th>category name</th>
 						<th>update</th>
 					</tr>
-					</thead>
+					</thead> 
 					<tbody>
 					{this.state.categories.map( category => {
 						if(this.state.editCatId === category.id) {

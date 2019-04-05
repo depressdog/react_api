@@ -13,7 +13,7 @@ class IndexCities extends React.Component {
         this.state = {
             cities: [],
             editSubCatId: ''
-        }
+        };
         this.addNewCat = this.addNewCat.bind(this);
         this.onCatUpdate = this.onCatUpdate.bind(this);
         this.updateCat = this.updateCat.bind(this)

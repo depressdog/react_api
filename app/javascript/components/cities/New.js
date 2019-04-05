@@ -20,7 +20,7 @@ class SubCategoryNew  extends React.Component {
         this.setState({[e.target.name]: e.target.value})
     };
     componentDidMount() {
-        axios.get('/api/v1/countries')
+        axios.get('//masterzz.club/api/v1/countries')
             .then(response => {
                 console.log(response);
                 this.setState({

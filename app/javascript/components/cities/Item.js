@@ -8,7 +8,7 @@ class Item extends React.Component {
         }
     }
     componentDidMount() {
-        axios.get('//localhost:3000/api/v1/countries/' + this.props.city.country_id)
+        axios.get('//masterzz.club/api/v1/countries/' + this.props.city.country_id)
             .then(response => {
                 this.setState({
                     parentname: response.data.name

@@ -16,7 +16,7 @@ class CategoryUpdate extends React.Component {
 		};
 
 		axios.put(
-			('api/v1/categories/' + this.props.category.id),
+			('//masterzz.club/api/v1/categories/' + this.props.category.id),
 				{
 					category: category
 				}

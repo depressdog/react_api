@@ -57,7 +57,7 @@ class IndexCategories extends React.Component {
 	};
 
 	deleteCategory = (id) => {
-		axios.delete(`/api/v1/categories/${id}`)
+		axios.delete(`//masterzz.club/api/v1/categories/${id}`)
 			.then(response => {
 				const categoryIndex = this.state.categories.findIndex(x => x.id === id);
 				const categories = update(this.state.categories, { $splice: [[categoryIndex, 1]]});
@@ -78,7 +78,7 @@ class IndexCategories extends React.Component {
 						<th>category name</th>
 						<th>update</th>
 					</tr>
-					</thead> 
+					</thead>
 					<tbody>
 					{this.state.categories.map( category => {
 						if(this.state.editCatId === category.id) {

@@ -20,7 +20,7 @@ class IndexCities extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('//masterzz.club/api/v1/cities')
+        axios.get('//localhost:3000/api/v1/cities')
             .then(response => {
                 console.log(response);
                 this.setState({
@@ -31,7 +31,7 @@ class IndexCities extends React.Component {
     }
 
     addNewCat(name, country_id) {
-        axios.post( '//masterzz.club/api/v1/cities', { city: {name: name, country_id: country_id} })
+        axios.post( '//localhost:3000/api/v1/cities', { city: {name: name, country_id: country_id} })
             .then(response => {
                 console.log(response);
                 const cities = update(this.state.cities, {
@@ -58,7 +58,7 @@ class IndexCities extends React.Component {
     };
 
     deleteCategory = (id) => {
-        axios.delete(`//masterzz.club/api/v1/cities/${id}`)
+        axios.delete(`//localhost:3000/api/v1/cities/${id}`)
             .then(response => {
                 const cityIndex = this.state.cities.findIndex(x => x.id === id);
                 const cities = update(this.state.cities, { $splice: [[cityIndex, 1]]});

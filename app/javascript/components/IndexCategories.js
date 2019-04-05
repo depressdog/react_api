@@ -21,7 +21,7 @@ class IndexCategories extends React.Component {
 		this.updateCat = this.updateCat.bind(this)
 	}
 	componentDidMount() {
-		axios.get('api/v1/categories')
+		axios.get('//masterzz.club/api/v1/categories')
 			.then(response => {
 				this.setState({
 					categories: response.data
@@ -31,7 +31,7 @@ class IndexCategories extends React.Component {
 	}
 
 	addNewCat(name) {
-		axios.post( '/api/v1/categories', { category: {name: name} })
+		axios.post( '//masterzz.club/api/v1/categories', { category: {name: name} })
 			.then(response => {
 				const categories = update(this.state.categories, {
 					$splice: [[0, 0, response.data]]

@@ -1,9 +1,7 @@
 import React from 'react'
 import axiosClient from './axiosClient'
 
-import Category from "./courses/Category"
-import Subcategory from "./courses/Subcategory"
-import Subsubcategory from "./courses/Subsubcategory"
+
 import {Radio, List} from 'semantic-ui-react'
 import UserAvatar from './UserAvatar'
 
@@ -12,6 +10,7 @@ class UpdateCourse extends React.Component {
 		super(props);
 		this.state = {
 			course_id: this.props.course_id,
+			user_id: this.props.user_id,
 			course: [],
 			category_id: '',
 			subcategory_id: '',
@@ -93,7 +92,7 @@ class UpdateCourse extends React.Component {
 					<div className="ui grid">
 						<div className="five wide column">
 							<div className="ui medium circular image">
-								<UserAvatar id={this.state.course.user_id} />
+								<UserAvatar id={this.state.user_id} />
 							</div>
 						</div>
 						<div className="seven wide column">

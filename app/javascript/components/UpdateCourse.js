@@ -93,7 +93,7 @@ class UpdateCourse extends React.Component {
 					<div className="ui grid">
 						<div className="five wide column">
 							<div className="ui medium circular image">
-								<UserAvatar id={course.user_id} />
+								<UserAvatar id={this.state.course.user_id} />
 							</div>
 						</div>
 						<div className="seven wide column">

@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from 'axios'
+import axiosClient from '../axiosClient'
 class Item extends React.Component {
     constructor(props){
         super(props);
@@ -8,7 +8,7 @@ class Item extends React.Component {
         }
     }
     componentDidMount() {
-        axios.get('//masterzz.club/api/v1/countries/' + this.props.city.country_id)
+        axiosClient.get(`countries/${this.props.city.country_id}`)
             .then(response => {
                 this.setState({
                     parentname: response.data.name

@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import axiosClient from './axiosClient'
 import update from 'immutability-helper'
 
 import CategoryItem from './CategoryItem'
@@ -8,7 +8,6 @@ import CategoryUpdate from "./CategoryUpdate";
 
 
 class IndexCategories extends React.Component {
-
 	constructor(props){
 		super(props);
 		this.state = {
@@ -20,8 +19,9 @@ class IndexCategories extends React.Component {
 		this.onCatUpdate = this.onCatUpdate.bind(this);
 		this.updateCat = this.updateCat.bind(this)
 	}
+
 	componentDidMount() {
-		axios.get('//masterzz.club/api/v1/categories')
+		axiosClient.get(`categories`)
 			.then(response => {
 				this.setState({
 					categories: response.data
@@ -31,7 +31,7 @@ class IndexCategories extends React.Component {
 	}
 
 	addNewCat(name) {
-		axios.post( '//masterzz.club/api/v1/categories', { category: {name: name} })
+		axiosClient.post( `categories`, { category: {name: name} })
 			.then(response => {
 				const categories = update(this.state.categories, {
 					$splice: [[0, 0, response.data]]
@@ -57,7 +57,7 @@ class IndexCategories extends React.Component {
 	};
 
 	deleteCategory = (id) => {
-		axios.delete(`//masterzz.club/api/v1/categories/${id}`)
+		axiosClient.delete(`categories/${id}`)
 			.then(response => {
 				const categoryIndex = this.state.categories.findIndex(x => x.id === id);
 				const categories = update(this.state.categories, { $splice: [[categoryIndex, 1]]});
@@ -77,12 +77,13 @@ class IndexCategories extends React.Component {
 						<th>id</th>
 						<th>category name</th>
 						<th>update</th>
+						<th>delete</th>
 					</tr>
 					</thead>
 					<tbody>
 					{this.state.categories.map( category => {
 						if(this.state.editCatId === category.id) {
-							return (<CategoryUpdate category={category} key={category.id} onCatUpdate={this.onCatUpdate} updateCat={this.updateCat} />
+							return (<CategoryUpdate category={category} key={category.id} onCatUpdate={this.onCatUpdate} updateCat={this.updateCat} onDelete={this.deleteCategory} />
 							)
 						} else {
 							return (<CategoryItem category={category} key={category.id} onCatUpdate={this.onCatUpdate} onDelete={this.deleteCategory} />

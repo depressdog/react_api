@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from 'axios'
+import axiosClient from '../axiosClient'
 
 class SubCategoryUpdate extends React.Component {
 	constructor(props){
@@ -16,8 +16,8 @@ class SubCategoryUpdate extends React.Component {
 			category_id: this.state.category_id
 		};
 
-		axios.put(
-			('//masterzz.club/api/v1/subcategories/' + this.props.subcategory.id),
+		axiosClient.put(
+			(`subcategories/${this.props.subcategory.id}`),
 			{
 				subcategory: subcategory
 			}
@@ -28,7 +28,7 @@ class SubCategoryUpdate extends React.Component {
 			.catch(error => console.log(error))
 	};
 	componentDidMount() {
-		axios.get('//masterzz.club/api/v1/categories/' + this.props.subcategory.category_id)
+		axiosClient.get(`categories/${this.props.subcategory.category_id}`)
 			.then(response => {
 				this.setState({
 					parentname: response.data.name
@@ -63,8 +63,8 @@ class SubCategoryUpdate extends React.Component {
 					</form>
 				</td>
 				<td>
-					<button className="ui button yellow" onClick={() => { this.props.onCatUpdate('')}}>
-						update
+					<button className="ui button green" onClick={() => { this.props.onCatUpdate('')}}>
+						save
 					</button>
 				</td>
 				<td>

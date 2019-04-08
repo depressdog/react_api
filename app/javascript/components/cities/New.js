@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from "axios";
+import axiosClient from '../axiosClient'
 
 class SubCategoryNew  extends React.Component {
     constructor(props){
@@ -20,7 +20,7 @@ class SubCategoryNew  extends React.Component {
         this.setState({[e.target.name]: e.target.value})
     };
     componentDidMount() {
-        axios.get('//masterzz.club/api/v1/countries')
+        axiosClient.get('countries')
             .then(response => {
                 console.log(response);
                 this.setState({

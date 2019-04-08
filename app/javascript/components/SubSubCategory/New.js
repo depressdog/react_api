@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from 'axios'
+import axiosClient from '../axiosClient'
 
 class New extends React.Component {
 	constructor(props){
@@ -23,14 +23,14 @@ class New extends React.Component {
 		this.setState({[e.target.name]: e.target.value})
 	};
 	componentDidMount() {
-		axios.get('//masterzz.club/api/v1/categories')
+		axiosClient.get('categories')
 			.then(response => {
 				this.setState({
 					categories: response.data
 				})
 			})
 			.catch(error => console.log(error));
-		axios.get(`//masterzz.club/api/v1/subcategories`)
+		axiosClient.get(`subcategories`)
 			.then(response => {
 				this.setState({
 					subcategories: response.data

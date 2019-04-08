@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from "axios";
+import axiosClient from './axiosClient'
 import update from 'immutability-helper'
 
 import New from "./countries/New";
@@ -19,7 +19,7 @@ class IndexCountries extends React.Component{
         this.updateCat = this.updateCat.bind(this)
     }
     componentDidMount() {
-        axios.get('//masterzz.club/api/v1/countries')
+        axiosClient.get('countries')
             .then(response => {
                 this.setState({
                     countries: response.data
@@ -28,7 +28,7 @@ class IndexCountries extends React.Component{
             .catch(error => console.log(error))
     }
     addNewCat(name) {
-        axios.post( '//masterzz.club/api/v1/countries', { country: {name: name} })
+        axiosClient.post( 'countries', { country: {name: name} })
             .then(response => {
 
                 const countries = update(this.state.countries, {
@@ -52,7 +52,7 @@ class IndexCountries extends React.Component{
         this.setState({countries: countries})
     };
     deleteCategory = (id) => {
-        axios.delete(`/api/v1/countries/${id}`)
+        axiosClient.delete(`countries/${id}`)
             .then(response => {
                 const countryIndex = this.state.countries.findIndex(x => x.id === id);
                 const countries = update(this.state.countries, { $splice: [[countryIndex, 1]]});

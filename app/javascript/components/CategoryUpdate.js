@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from 'axios'
+import axiosClient from './axiosClient'
 
 
 class CategoryUpdate extends React.Component {
@@ -15,8 +15,8 @@ class CategoryUpdate extends React.Component {
 			name: this.state.name
 		};
 
-		axios.put(
-			('//masterzz.club/api/v1/categories/' + this.props.category.id),
+		axiosClient.put(
+			(`categories/${this.props.category.id}`),
 				{
 					category: category
 				}
@@ -34,23 +34,28 @@ class CategoryUpdate extends React.Component {
 
 				<tr key={this.props.category.id}>
 					<td>{this.props.category.id}</td>
-						<td>
-							<form className="ui form" onBlur={this.onSubmit}>
-								<div className="ui field">
-									<input
-										name="name"
-										type="text"
-										value={this.state.name}
-										onChange={this.handleInput}
-									/>
-								</div>
-							</form>
-						</td>
-						<td>
-							<button onClick={() => { this.props.onCatUpdate('')}}>
-								cansel
-							</button>
-						</td>
+					<td>
+						<form className="ui form" onBlur={this.onSubmit}>
+							<div className="ui field">
+								<input
+									name="name"
+									type="text"
+									value={this.state.name}
+									onChange={this.handleInput}
+								/>
+							</div>
+						</form>
+					</td>
+					<td>
+						<button className="ui button green" onClick={() => { this.props.onCatUpdate('')}}>
+							Save
+						</button>
+					</td>
+					<td>
+						<button className="ui button red" onClick={() => { this.props.onDelete(this.props.category.id)}}>
+							delete
+						</button>
+					</td>
 				</tr>
 		)
 	}

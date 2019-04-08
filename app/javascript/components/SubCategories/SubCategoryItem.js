@@ -1,5 +1,6 @@
 import React from 'react'
-import axios from 'axios'
+import axiosClient from '../axiosClient'
+
 class SubCategoryItem extends React.Component {
 	constructor(props){
 		super(props);
@@ -8,7 +9,7 @@ class SubCategoryItem extends React.Component {
 		}
 	}
 	componentDidMount() {
-		axios.get('//masterzz.club/api/v1/categories/' + this.props.subcategory.category_id)
+		axiosClient.get(`categories/${this.props.subcategory.category_id}`)
 			.then(response => {
 				this.setState({
 					parentname: response.data.name

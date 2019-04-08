@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from "axios";
+import axiosClient from './axiosClient'
 import update from "immutability-helper";
 
 import New from './cities/New'
@@ -20,7 +20,7 @@ class IndexCities extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('//masterzz.club/api/v1/cities')
+        axiosClient.get('cities')
             .then(response => {
                 console.log(response);
                 this.setState({
@@ -31,7 +31,7 @@ class IndexCities extends React.Component {
     }
 
     addNewCat(name, country_id) {
-        axios.post( '//masterzz.club/api/v1/cities', { city: {name: name, country_id: country_id} })
+        axiosClient.post( 'cities', { city: {name: name, country_id: country_id} })
             .then(response => {
                 console.log(response);
                 const cities = update(this.state.cities, {
@@ -58,7 +58,7 @@ class IndexCities extends React.Component {
     };
 
     deleteCategory = (id) => {
-        axios.delete(`//masterzz.club/api/v1/cities/${id}`)
+        axiosClient.delete(`cities/${id}`)
             .then(response => {
                 const cityIndex = this.state.cities.findIndex(x => x.id === id);
                 const cities = update(this.state.cities, { $splice: [[cityIndex, 1]]});

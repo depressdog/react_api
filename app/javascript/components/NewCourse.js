@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from 'axios'
+import axiosClient from './axiosClient'
 import update from "immutability-helper";
 
 import {Radio, List} from 'semantic-ui-react'
@@ -37,21 +37,21 @@ class NewCourse extends React.Component {
 		}
 	}
 	componentDidMount() {
-		axios.get('//masterzz.club/api/v1/categories')
+		axiosClient.get('categories')
 			.then(response => {
 				this.setState({
 					categories: response.data
 				})
 			})
 			.catch(error => console.log(error));
-		axios.get(`//masterzz.club/api/v1/subcategories/`)
+		axiosClient.get(`subcategories/`)
 			.then(response => {
 				this.setState({
 					subcategories: response.data
 				})
 			})
 			.catch(error => console.log(error));
-		axios.get(`//masterzz.club/api/v1/subsubcategories/`)
+		axiosClient.get(`subsubcategories/`)
 			.then(response => {
 				this.setState({
 					subsubcategories: response.data
@@ -63,7 +63,7 @@ class NewCourse extends React.Component {
 		this.setState({[e.target.name]: e.target.value})
 	};
 	onSubmit = () => {
-		axios.post( '//masterzz.club/api/v1/courses',
+		axiosClient.post( 'courses',
 			{ course: {
 					user_id: this.props.user_id,
 					username: this.state.username,

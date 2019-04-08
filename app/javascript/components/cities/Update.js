@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from 'axios'
+import axiosClient from '../axiosClient'
 
 class Update extends React.Component {
     constructor(props){
@@ -16,8 +16,8 @@ class Update extends React.Component {
             country_id: this.state.country_id
         };
 
-        axios.put(
-            ('//masterzz.club/api/v1/cities/' + this.props.city.id),
+        axiosClient.put(
+            (`cities/${this.props.city.id}`),
             {
                 city: city
             }
@@ -28,7 +28,7 @@ class Update extends React.Component {
             .catch(error => console.log(error))
     };
     componentDidMount() {
-        axios.get('//masterzz.club/api/v1/countries/' + this.props.city.country_id)
+        axiosClient.get(`countries/${this.props.city.country_id}`)
             .then(response => {
                 this.setState({
                     parentname: response.data.name

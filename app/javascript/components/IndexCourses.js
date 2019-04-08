@@ -1,9 +1,8 @@
 import React from 'react'
-import axios from 'axios'
+import axiosClient from './axiosClient'
+
 
 import Category from './courses/Category'
-import Subcategory from './courses/Subcategory'
-import Subsubcategory from './courses/Subsubcategory'
 
 class IndexCourses extends React.Component{
 	constructor(props){
@@ -16,9 +15,8 @@ class IndexCourses extends React.Component{
 		}
 	}
 	componentDidMount() {
-		axios.get('//masterzz.club/api/v1/courses')
+		axiosClient.get('courses')
 			.then(response => {
-				console.log(response);
 				this.setState({
 					courses: response.data
 				})
@@ -42,9 +40,9 @@ class IndexCourses extends React.Component{
 									<div className="content">
 										<a href={`courses/${course.id}`} className="header">{course.username}</a>
 										<div className="meta">
-											<span className="date"><Category category_id={course.category_id}/></span>
-											<span className="cinema"><Subcategory subcategory_id={course.subcategory_id}/></span>
-											<span><Subsubcategory subsubcategory_id={course.subsubcategory_id}/></span>
+											<Category categorys="categories" id={course.category_id}/>
+											<Category categorys="subcategories" id={course.subcategory_id}/>
+											<Category categorys="subsubcategories" id={course.subsubcategory_id}/>
 										</div>
 										<div className="description">{course.body}</div>
 										<div className="extra">

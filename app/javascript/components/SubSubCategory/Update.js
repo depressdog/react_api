@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from 'axios'
+import axiosClient from '../axiosClient'
 
 class Update extends React.Component {
 	constructor(props){
@@ -16,8 +16,8 @@ class Update extends React.Component {
 			subcategory_id: this.state.subcategory_id
 		};
 
-		axios.put(
-			('//masterzz.club/api/v1/subsubcategories/' + this.props.subsubcategory.id),
+		axiosClient.put(
+			(`subsubcategories/${this.props.subsubcategory.id}`),
 			{
 				subsubcategory: subsubcategory
 			}
@@ -28,7 +28,7 @@ class Update extends React.Component {
 			.catch(error => console.log(error))
 	};
 	componentDidMount() {
-		axios.get('//masterzz.club/api/v1/subcategories/' + this.props.subsubcategory.subcategory_id)
+		axiosClient.get(`subcategories/${this.props.subsubcategory.subcategory_id}`)
 			.then(response => {
 				this.setState({
 					parentname: response.data.name

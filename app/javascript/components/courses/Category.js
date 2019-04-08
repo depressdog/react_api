@@ -1,27 +1,30 @@
 import React from 'react'
-import axios from 'axios'
+import axiosClient from '../axiosClient'
 
 class Category extends React.Component{
 	constructor(props){
 		super(props)
 		this.state = {
-			name: ''
+			name: '',
+			categorys: this.props.categorys,
+			id: this.props.id
 		}
 	}
 	componentDidMount() {
-		axios.get('//masterzz.club/api/v1/categories/' + this.props.category_id)
-			.then(response => {
-				this.setState({
-					name: response.data.name
+		if(this.state.id != null){
+			axiosClient.get(`${this.state.categorys}/${this.state.id}`)
+				.then(response => {
+					this.setState({
+						name: response.data.name
+					})
 				})
-			})
-
+		}
 	}
 	render() {
 		return(
-			<React.Fragment>
+			<span>
 				{this.state.name}
-			</React.Fragment>
+			</span>
 		)
 	}
 }

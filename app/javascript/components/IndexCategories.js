@@ -70,6 +70,7 @@ class IndexCategories extends React.Component {
 
 		return (
 			<React.Fragment>
+				{this.state.username}
 				<CategoryNew onNewCat={this.addNewCat}/>
 				<table className="ui celled table">
 					<thead>

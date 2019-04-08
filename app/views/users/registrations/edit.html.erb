@@ -1,4 +1,7 @@
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'ui form', multipart: true }) do |f| %>
+  <%= react_component("editProfile") %>
+
 	<%= render "devise/shared/error_messages", resource: resource %>
 	<div class="ui grid">
 		<div class="five wide column">
@@ -59,22 +62,22 @@
 					<h3>О себе:</h3>
 					<%= f.text_area :body %>
 				</div>
-<!--        <div class="item">-->
-<!--          <div class="five fields">-->
-<!--            <div class="field"><%#= f.label :image1 %><%= f.file_field :image1 %></div>-->
-<!--            <div class="field"><%#= f.label :image2 %><%= f.file_field :image2 %></div>-->
-<!--            <div class="field"><%#= f.label :image3 %><%= f.file_field :image3 %></div>-->
-<!--            <div class="field"><%#= f.label :image4 %><%= f.file_field :image4 %></div>-->
-<!--            <div class="field"><%#= f.label :image5 %><%= f.file_field :image5 %></div>-->
-<!--          </div>-->
-<!--          <div class="five fields">-->
-<!--            <div class="field"><%#= f.label :image6 %><%= f.file_field :image6 %></div>-->
-<!--            <div class="field"><%#= f.label :image7 %><%= f.file_field :image7 %></div>-->
-<!--            <div class="field"><%#= f.label :image8 %><%= f.file_field :image8 %></div>-->
-<!--            <div class="field"><%#= f.label :image9 %><%= f.file_field :image9 %></div>-->
-<!--            <div class="field"><%#= f.label :image10 %><%= f.file_field :image10 %></div>-->
-<!--          </div>-->
-<!--        </div>-->
+       <div class="item">
+         <div class="five fields">
+           <div class="field"><%#= f.label :image1 %><%= f.file_field :image1 %></div>
+           <div class="field"><%#= f.label :image2 %><%= f.file_field :image2 %></div>
+           <div class="field"><%#= f.label :image3 %><%= f.file_field :image3 %></div>
+           <div class="field"><%#= f.label :image4 %><%= f.file_field :image4 %></div>
+           <div class="field"><%#= f.label :image5 %><%= f.file_field :image5 %></div>
+         </div>
+         <div class="five fields">
+           <div class="field"><%#= f.label :image6 %><%= f.file_field :image6 %></div>
+           <div class="field"><%#= f.label :image7 %><%= f.file_field :image7 %></div>
+           <div class="field"><%#= f.label :image8 %><%= f.file_field :image8 %></div>
+           <div class="field"><%#= f.label :image9 %><%= f.file_field :image9 %></div>
+           <div class="field"><%#= f.label :image10 %><%= f.file_field :image10 %></div>
+         </div>
+       </div>
 				<div class="item">
           <h3>видео</h3>
           <%= f.text_field :video_url %>

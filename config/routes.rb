@@ -1,15 +1,20 @@
 Rails.application.routes.draw do
-  get 'cities/index'
-  get 'countries/index'
+
   devise_for :users, controllers: {
       sessions: 'users/sessions',
       registrations: 'users/registrations', only: [:update]
   }
 
+  scope :auth do
+    get 'is_signed_in', to: 'auth#is_signed_in?'
+  end
+
   get 'genders/new'
   get 'courses/index'
   get 'subcategories/index'
   get 'categories/index'
+  get 'cities/index'
+  get 'countries/index'
 
   namespace :api do
     namespace :v1 do
@@ -19,6 +24,7 @@ Rails.application.routes.draw do
       resources :courses
       resources :countries
       resources :cities
+      resources :users
     end
   end
 

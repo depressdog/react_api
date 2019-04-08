@@ -3,6 +3,7 @@ import axiosClient from './axiosClient'
 
 
 import Category from './courses/Category'
+import UserAvatar from './UserAvatar'
 
 class IndexCourses extends React.Component{
 	constructor(props){
@@ -29,12 +30,12 @@ class IndexCourses extends React.Component{
 			<React.Fragment>
 				<div className="ui items">
 					{
-						this.state.courses.map(course => {
+						this.state.courses.map( course => {
 							return(
 								<div key={course.id} className="item">
 									<div className="image">
 										<a href={`courses/${course.id}`} className="ui small image">
-											<img src="https://semantic-ui.com/images/avatar2/large/matthew.png" alt=""/>
+											<UserAvatar id={course.user_id} />
 										</a>
 									</div>
 									<div className="content">

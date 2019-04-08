@@ -1,11 +1,11 @@
 import React from 'react'
-import axios from 'axios'
+import axiosClient from './axiosClient'
 
 import Category from "./courses/Category"
 import Subcategory from "./courses/Subcategory"
 import Subsubcategory from "./courses/Subsubcategory"
 import {Radio, List} from 'semantic-ui-react'
-
+import UserAvatar from './UserAvatar'
 
 class UpdateCourse extends React.Component {
 	constructor(props){
@@ -22,7 +22,7 @@ class UpdateCourse extends React.Component {
 		}
 	}
 	componentDidMount() {
-		axios.get(`//masterzz.club/api/v1/courses/${this.state.course_id}`)
+		axiosClient.get(`courses/${this.state.course_id}`)
 			.then(response => {
 				this.setState({
 					course: response.data,
@@ -32,21 +32,21 @@ class UpdateCourse extends React.Component {
 				})
 			})
 			.catch(error => console.log(error));
-		axios.get('//masterzz.club/api/v1/categories')
+		axiosClient.get('categories')
 			.then(response => {
 				this.setState({
 					categories: response.data
 				})
 			})
 			.catch(error => console.log(error));
-		axios.get(`//masterzz.club/api/v1/subcategories/`)
+		axiosClient.get(`subcategories/`)
 			.then(response => {
 				this.setState({
 					subcategories: response.data
 				})
 			})
 			.catch(error => console.log(error));
-		axios.get(`//masterzz.club/api/v1/subsubcategories/`)
+		axiosClient.get(`subsubcategories/`)
 			.then(response => {
 				this.setState({
 					subsubcategories: response.data
@@ -55,8 +55,8 @@ class UpdateCourse extends React.Component {
 			.catch(error => console.log(error));
 	}
 	onSubmit = () => {
-		axios.put(
-			(`//masterzz.club/api/v1/courses/${this.props.course_id}`),
+		axiosClient.put(
+			(`courses/${this.props.course_id}`),
 			{
 				body: this.state.body,
 				video_url: this.state.video_url,
@@ -93,7 +93,7 @@ class UpdateCourse extends React.Component {
 					<div className="ui grid">
 						<div className="five wide column">
 							<div className="ui medium circular image">
-								<img src="https://semantic-ui.com/images/avatar2/large/kristy.png" alt=""/>
+								<UserAvatar id={course.user_id} />
 							</div>
 						</div>
 						<div className="seven wide column">

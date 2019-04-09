@@ -17,7 +17,8 @@ class UpdateCourse extends React.Component {
 			subsubcategory_id: '',
 			categories: [],
 			subcategories: [],
-			subsubcategories: []
+			subsubcategories: [],
+			img1: ''
 		}
 	}
 	componentDidMount() {
@@ -65,6 +66,7 @@ class UpdateCourse extends React.Component {
 				education: this.state.education,
 				age: this.state.age,
 				price: this.state.price,
+				img1: this.state.img1,
 				category_id: this.state.category_id,
 				subcategory_id: this.state.subcategory_id,
 				subsubcategory_id: this.state.subsubcategory_id
@@ -85,11 +87,31 @@ class UpdateCourse extends React.Component {
 	handleCatChange = (e, { value }) => this.setState({ category_id: value, subcategory_id: '', subsubcategory_id: '' });
 	handleSubCatChange = (e, { value }) => this.setState({ subcategory_id: value, subsubcategory_id: '' });
 	handleSubSubCatChange = (e, { value }) => this.setState({ subsubcategory_id: value });
+	getBase64 = (callback) => {
+		const fileReader = new FileReader();
+		fileReader.readAsDataURL(callback);
+		fileReader.onload = () => {
+			this.setState({img1: fileReader.result})
+      console.log(fileReader.result);
+    };
+    fileReader.onerror = (error) => {
+      console.log('Error :', error);
+    };
+	}
+	handleFileUpload = e => {
+	    this.getBase64(e.target.files[0])
+			console.log("this", this.getBase64(e.target.files[0]))
+			console.log("img1 = ", this.state.img1)
+	  };
 	render() {
 		return(
 			<React.Fragment>
 				<form className="ui form" onSubmit={this.onSubmit}>
 					<div className="ui grid">
+						<div className="sixteen wide column">
+							<img url={this.state.course.img1} />
+							<input type="file" onChange={this.handleFileUpload} />
+						</div>
 						<div className="five wide column">
 							<div className="ui medium circular image">
 								<UserAvatar id={this.state.user_id} />
@@ -266,6 +288,7 @@ class UpdateCourse extends React.Component {
 							/>
 						</div>
 					</div>
+
 				</form>
 			</React.Fragment>
 		)

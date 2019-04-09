@@ -1,1 +1,2 @@
 <%= react_component("UpdateCourse", course_id: @course.id, user_id: @course.user_id) %>
+<%= form_for @course, html: {class: 'ui form'} do |f| %>

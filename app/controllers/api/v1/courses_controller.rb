@@ -14,6 +14,7 @@ class Api::V1::CoursesController < ApplicationController
     @course = Course.find(params[:id])
     @course.update_attributes(course_params)
     render json: @course
+    
   end
   def create
     @course = Course.new(course_params)
@@ -32,6 +33,6 @@ class Api::V1::CoursesController < ApplicationController
                                      :video_url, :price, :body, :image1,
                                      :image2, :image3, :image4, :image5,
                                      :image6, :image7, :image8, :image9,
-                                     :image10)
+                                     :image10, :img1)
     end
 end

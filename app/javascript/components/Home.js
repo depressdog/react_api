@@ -6,7 +6,7 @@ class Home extends React.Component {
 		super(props);
 		this.state = {
 			homes: [
-				{id: 1, title: 'Обучение', imgUrl: '/assets/matthew.png'},
+				{id: 1, title: 'Обучение', imgUrl: 'matthew-b1904dc651ba20c86e1892d37c0193359b7351704e4716cf5fe6fb860ef22935.png'},
 				{id: 2, title: 'тренинги', imgUrl: '/assets/matthew.png'},
 				{id: 3, title: 'работа', imgUrl: '/assets/matthew.png'},
 				{id: 4, title: 'Услуги', imgUrl: '/assets/matthew.png'},

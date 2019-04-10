@@ -106,7 +106,7 @@ class UpdateCourse extends React.Component {
 	render() {
 		return(
 			<React.Fragment>
-				<form className="ui form" onSubmit={this.onSubmit}>
+				<form className="ui form" multipart="true" onSubmit={this.onSubmit}>
 					<div className="ui grid">
 						<div className="sixteen wide column">
 							<img url={this.state.course.img1} />

@@ -1,2 +1,93 @@
-<%= react_component("UpdateCourse", course_id: @course.id, user_id: @course.user_id) %>
-<%= form_for @course, html: {class: 'ui form'} do |f| %>
+<%= form_for @course, html: {multipart: true ,class: 'ui form'} do |f| %>
+  <div class="ui grid">
+    <div class="five wide column">
+  		<div class="ui medium image">
+  			<%= image_tag @course.user.avatar.url if @course.user.avatar? %>
+  		</div>
+  	</div>
+    <div class="seven wide column">
+      <div className="item">
+        <%= f.submit "редактировать", class: 'ui button green' %>
+        <%= link_to "Удалить", course_path(@course), method: :delete, class: 'ui button red' %>
+      </div>
+      <div className="item">
+        предмет обучения:
+        <%= react_component("categoryCeckbox") %>
+      </div>
+      <div className="item">
+        Ник:
+        <div className="field">
+          <%= f.text_field :username %>
+        </div>
+      </div>
+      <div className="item">
+        Номер телефона:
+        <div className="field">
+          <%= f.text_field :phone %>
+        </div>
+      </div>
+      <div className="item">
+        Имейл:
+        <div className="field">
+          <%= f.text_field :email %>
+        </div>
+      </div>
+
+      <div className="item">
+        цена:
+        <div className="field">
+
+            <%= f.text_field :price %>
+        </div>
+      </div>
+      <div className="item">
+        образование:
+        <div className="field">
+
+            <%= f.text_field :education %>
+        </div>
+      </div>
+      <div className="item">
+        возраст:
+        <div className="field">
+
+            <%= f.text_field :age %>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+  <div className="sixteen wide column">
+    <h2>Описание:</h2>
+    <div className="field">
+      <%= f.text_area :body %>
+    </div>
+  </div>
+  <div className="sixteen wide column">
+    <h3>Видео</h3>
+    <div className="field">
+      <%= f.text_field :video_url %>
+    </div>
+  </div>
+  <div class="sixteen wide column">
+    <h3>Галлерея:</h3>
+    <div class="five fields">
+      <div class="field"><%#= f.label :image1 %><%= f.file_field :image1 %></div>
+      <div class="field"><%#= f.label :image2 %><%= f.file_field :image2 %></div>
+      <div class="field"><%#= f.label :image3 %><%= f.file_field :image3 %></div>
+      <div class="field"><%#= f.label :image4 %><%= f.file_field :image4 %></div>
+      <div class="field"><%#= f.label :image5 %><%= f.file_field :image5 %></div>
+    </div>
+    <div class="five fields">
+      <div class="field"><%#= f.label :image6 %><%= f.file_field :image6 %></div>
+      <div class="field"><%#= f.label :image7 %><%= f.file_field :image7 %></div>
+      <div class="field"><%#= f.label :image8 %><%= f.file_field :image8 %></div>
+      <div class="field"><%#= f.label :image9 %><%= f.file_field :image9 %></div>
+      <div class="field"><%#= f.label :image10 %><%= f.file_field :image10 %></div>
+    </div>
+  </div>
+<% end %>
+
+<%# <%= react_component("UpdateCourse", course_id: @course.id, user_id: @course.user_id) %>

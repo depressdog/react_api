@@ -4,6 +4,7 @@ import Video from './Video'
 import Category from './courses/Category'
 import UserAvatar from './UserAvatar'
 
+
 class ShowCourse extends React.Component {
   constructor(props) {
     super(props)
@@ -56,6 +57,22 @@ class ShowCourse extends React.Component {
           <p>{this.props.course.body}</p>
         </div>
         <Video video_url={this.state.video_url} />
+          <div class="sixteen wide column">
+            <h3>Галлерея:</h3>
+            <div class="ui small images">
+              <img src={this.props.course.image1.url}/>
+              <img src={this.props.course.image2.url}/>
+              <img src={this.props.course.image3.url}/>
+              <img src={this.props.course.image4.url}/>
+              <img src={this.props.course.image5.url}/>
+              <img src={this.props.course.image6.url}/>
+              <img src={this.props.course.image7.url}/>
+              <img src={this.props.course.image8.url}/>
+              <img src={this.props.course.image9.url}/>
+              <img src={this.props.course.image10.url}/>
+            </div>
+          </div>
+
       </React.Fragment>
     )
   }

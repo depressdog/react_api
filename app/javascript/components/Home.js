@@ -6,11 +6,11 @@ class Home extends React.Component {
 		super(props);
 		this.state = {
 			homes: [
-				{id: 1, title: 'Обучение', imgUrl: 'https://semantic-ui.com/images/avatar2/large/matthew.png'},
-				{id: 2, title: 'тренинги', imgUrl: 'https://semantic-ui.com/images/avatar2/large/kristy.png'},
-				{id: 3, title: 'работа', imgUrl: 'https://semantic-ui.com/images/avatar2/large/molly.png'},
-				{id: 4, title: 'Услуги', imgUrl: 'https://semantic-ui.com/images/avatar2/large/elyse.png'},
-				{id: 5, title: 'курсы', imgUrl: 'https://semantic-ui.com/images/avatar/large/elliot.jpg'}
+				{id: 1, title: 'Обучение', imgUrl: '/assets/matthew.png'},
+				{id: 2, title: 'тренинги', imgUrl: '/assets/matthew.png'},
+				{id: 3, title: 'работа', imgUrl: '/assets/matthew.png'},
+				{id: 4, title: 'Услуги', imgUrl: '/assets/matthew.png'},
+				{id: 5, title: 'курсы', imgUrl: '/assets/matthew.png'}
 			]
 		}
 	}

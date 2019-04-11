@@ -3,7 +3,11 @@
 		<div class="ui medium circular image">
 			<%= image_tag @user.avatar.url if @user.avatar? %>
 		</div>
-		<%= link_to "редактировать", edit_user_registration_path, class: 'fluid ui button blue' %>
+		<% if user_signed_in? %>
+			<% if current_user.id === @user.id %>
+				<%= link_to "редактировать", edit_user_registration_path, class: 'fluid ui button blue' %>
+			<% end %>
+		<% end %>
 	</div>
 	<div class="eleven wide column">
 		<div class="ui list">

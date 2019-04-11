@@ -28,6 +28,7 @@
 /config/database.yml
 /config/secrets.yml
 .idea
+app/javascript/components/axiosClient.js
 
 /public/uploads
 

@@ -32,7 +32,7 @@
 				Мой возраст: <%= @user.age %>
 			</div>
 			<div class="item">
-				Локация: <%= @user.country.name %>, <%= @user.city.name %>
+				Локация: <%= @user.country.name  if @user.country.name? %>, <%= @user.city.name if @user.city.name? %>
 			</div>
 			<div class="item">
 				О себе: <%= @user.body %>

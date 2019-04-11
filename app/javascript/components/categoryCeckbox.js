@@ -8,9 +8,9 @@ class categoryCeckbox extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      category_id: '',
-      subcategory_id: '',
-      subsubcategory_id: '',
+      category_id: this.props.category_id,
+      subcategory_id: this.props.subcategory_id,
+      subsubcategory_id: this.props.subsubcategory_id,
       categories: [],
       subcategories: [],
       subsubcategories: [],
@@ -51,20 +51,20 @@ class categoryCeckbox extends React.Component {
   SubSubcatChange(e){this.setState({subcategory_id: e.target.value});}
   render(){
     const category = this.state.categories.map((category) => {
-        return(<option key={category.id} value={category.id}  >{category.name}</option>)
+        return(<option key={category.id} value={category.id} selected={this.state.category_id === category.id } >{category.name}</option>)
     });
     const subcategories = this.state.subcategories.map((subcategory) => {
       if(this.state.category_id != subcategory.category_id){
 
       }else {
-        return(<option key={subcategory.id} value={subcategory.id}>{subcategory.name}</option>)
+        return(<option key={subcategory.id} value={subcategory.id} selected={this.state.subcategory_id === subcategory.id }>{subcategory.name}</option>)
       }
     });
     const subsubcategory = this.state.subsubcategories.map((subsubcategory) => {
       if(this.state.subcategory_id != subsubcategory.subcategory_id){
 
       }else {
-        return(<option key={subsubcategory.id} value={subsubcategory.id}>{subsubcategory.name}</option>)
+        return(<option key={subsubcategory.id} value={subsubcategory.id} selected={this.state.subsubcategory_id === subsubcategory.id } >{subsubcategory.name}</option>)
       }
 
     });

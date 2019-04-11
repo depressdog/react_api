@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from 'axios'
+import axiosClient from '../axiosClient'
 
 
 class Update extends React.Component {
@@ -15,8 +15,8 @@ class Update extends React.Component {
             name: this.state.name
         };
 
-        axios.put(
-            ('//masterzz.club/api/v1/countries/' + this.props.country.id),
+        axiosClient.put(
+            (`countries/${this.props.country.id}`),
             {
                 country: country
             }
@@ -48,7 +48,7 @@ class Update extends React.Component {
                 </td>
                 <td>
                     <button onClick={() => { this.props.onCatUpdate('')}}>
-                        cansel
+                        save
                     </button>
                 </td>
             </tr>
